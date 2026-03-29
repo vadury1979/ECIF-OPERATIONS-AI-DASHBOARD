@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,41 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FinOps ECIF — Dashboard</title>
 
-  <!-- ✅ Keep these governance/meta tags if you need them -->
+  <!-- Governance / Meta (optional) -->
   <meta name="classification" content="INTERNAL" />
   <meta name="data-sensitivity" content="CONFIDENTIAL-FINANCIAL" />
   <meta name="review-date" content="2025-06-30" />
 
-  <!-- ✅ Fonts (optional but your original uses it) -->
-  https://fonts.googleapis.com
-  https://fonts.gstatic.com
-  https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap
+  <!-- Fonts (correct way) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"="link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;
 
-  <!-- ✅ Your CSS extracted from the big file -->
-  ./styles.css
+  <!-- Your extracted CSS -->
+  <link rel="stylesheet" href="./styles.cssipt src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4min.js</script>
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
 
-  <!-- ✅ Libraries your dashboard uses -->
-  https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.jsscript>
-  https://cdn.botframework.com/botframework-webchat/latest/webchat.jsscript>
+  <!-- Teams SDK (you already designed for Teams theming & context) -->
+  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
 
-  <!-- ✅ Teams SDK (you already use this in your dashboard) -->
-  https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.jsscript>
-
-  <!-- ✅ Move large data to a separate file (choose one approach) -->
-  <!-- Option A: JSON -->
+  <!-- Data location (app.js will fetch this) -->
   <script>
     window.__ECIF_DATA_URL__ = "./data.json";
   </script>
 
-  <!-- ✅ Your app logic extracted from the big file -->
-  ./app.jsscript>
+  <!-- Your app logic -->
+  <script src="./app.js" defer></script>
 </head>
 
 <body>
-  <!-- ✅ App root: your JS will render/activate the dashboard here -->
-  <div id="app-root"></div>
-
-  <!-- Optional: lightweight fallback message (shows while app.js loads) -->
+  <div id="app-root">Loading dashboard…</div>
   <noscript>This dashboard requires JavaScript to run.</noscript>
 </body>
 </html>
