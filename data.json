@@ -1,10 +1,10 @@
+
 {
   "totalCases": 124,
   "activeCases": 98,
   "completedCases": 21,
   "cancelledCases": 5,
   "investment": 12400000,
-
   "regionData": [
     {
       "region": "EMEA",
