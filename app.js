@@ -33,6 +33,20 @@ function initTeamsIfAvailable() {
 
 function renderDashboard(data) {
 
+let regionHTML = '';
+
+  data.regionData.forEach(r => {
+
+    regionHTML += `
+      <div class="card">
+        <h3>${r.region}</h3>
+        <p>Cases: ${r.cases}</p>
+        <p>Investment: $${r.investment.toLocaleString()}</p>
+      </div>
+    `;
+
+  });
+
   document.getElementById("app-root").innerHTML = `
     <div class="main">
 
@@ -61,9 +75,14 @@ function renderDashboard(data) {
         <h1>$${data.investment.toLocaleString()}</h1>
       </div>
 
+      <h2>🌍 Regional Snapshot</h2>
+
+      ${regionHTML}
+
     </div>
   `;
 }
+
 
 (async function main() {
 
