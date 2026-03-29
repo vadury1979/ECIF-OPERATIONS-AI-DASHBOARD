@@ -76,6 +76,32 @@ let regionHTML = '';
       </div>
 
       <h2>🌍 Regional Snapshot</h2>
+      
+<div class="card">
+  <h3>🔄 Cases with IO</h3>
+  <p>${data.ioPercent}%</p>
+</div>
+
+<div class="card">
+  <h3>📋 Cases with PO</h3>
+  <p>${data.poPercent}%</p>
+</div>
+
+<div class="card">
+  <h3>🧾 Cases with Invoice</h3>
+  <p>${data.invoicePercent}%</p>
+</div>
+
+<div class="card">
+  <h3>✅ Invoice Approved</h3>
+  <p>${data.invoiceApprovedPercent}%</p>
+</div>
+
+<div class="card">
+  <h3>⏱ Avg E2E Cycle</h3>
+  <p>${data.e2eCycle} Days</p>
+</div>
+
 
       ${regionHTML}
 
