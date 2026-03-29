@@ -7,6 +7,7 @@ async function loadData() {
 function initTeamsIfAvailable() {
   try {
     if (window.microsoftTeams?.app) {
+
       window.microsoftTeams.app.initialize().then(async () => {
 
         document.body.classList.add("in-teams");
@@ -23,31 +24,65 @@ function initTeamsIfAvailable() {
         });
 
       });
+
     }
   } catch (e) {
     console.log("Not inside Teams");
   }
 }
 
-function renderShell() {
+function renderDashboard(data) {
+
   document.getElementById("app-root").innerHTML = `
-      <div class="main">
-          <div class="card">
-              <h2>✅ ECIF Dashboard Loaded</h2>
-              <p>If you are seeing this inside Teams – integration is working.</p>
-          </div>
+    <div class="main">
+
+      <div class="card">
+        <h2>Total Cases</h2>
+        <h1>${data.totalCases}</h1>
       </div>
+
+      <div class="card">
+        <h2>Active Cases</h2>
+        <h1>${data.activeCases}</h1>
+      </div>
+
+      <div class="card">
+        <h2>Completed</h2>
+        <h1>${data.completedCases}</h1>
+      </div>
+
+      <div class="card">
+        <h2>Cancelled</h2>
+        <h1>${data.cancelledCases}</h1>
+      </div>
+
+      <div class="card">
+        <h2>Investment</h2>
+        <h1>$${data.investment.toLocaleString()}</h1>
+      </div>
+
+    </div>
   `;
 }
 
 (async function main() {
+
   initTeamsIfAvailable();
-  renderShell();
 
   try {
-    const data = await loadData(); 
-    console.log("Data Loaded:", data);
-  } catch (err) {
-    console.log("No data.json yet");
+
+    const data = await loadData();
+
+    renderDashboard(data);
+
+    console.log("✅ Data Loaded");
+
   }
+  catch(err) {
+
+    document.getElementById("app-root").innerHTML =
+      "<h2>❌ Failed to load data.json</h2>";
+
+  }
+
 })();
