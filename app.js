@@ -30,7 +30,6 @@ function initTeamsIfAvailable() {
 function renderDashboard(data) {
 
   let regionHTML = "";
-
   data.regionData.forEach(r => {
     regionHTML += `
       <div class="card">
@@ -70,7 +69,6 @@ function renderDashboard(data) {
       </div>
 
       <h2>🌍 Regional Snapshot</h2>
-
       ${regionHTML}
 
       <h2>📐 SLA Metrics</h2>
@@ -100,18 +98,34 @@ function renderDashboard(data) {
         <p>${data.e2eCycle} Days</p>
       </div>
 
+      <h2>📊 ECIF Program Mix</h2>
+      <div class="card">
+        <canvas id="programChart"></canvas>
+      </div>
+
     </div>
   `;
+
+  const ctx = document.getElementById('programChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: data.programMix.map(p => p.name),
+      datasets: [{
+        data: data.programMix.map(p => p.cases),
+        backgroundColor: ['#4285f4','#fbbc05','#34a853','#ea4335']
+      }]
+    }
+  });
 }
 
 (async function main() {
   initTeamsIfAvailable();
-
   try {
     const data = await loadData();
     renderDashboard(data);
-  }
-  catch(err) {
+  } catch(err) {
     document.getElementById("app-root").innerHTML =
       "<h2>❌ Failed to load data.json</h2>";
   }
