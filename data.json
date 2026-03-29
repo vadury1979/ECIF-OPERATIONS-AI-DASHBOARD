@@ -12,20 +12,15 @@
   "e2eCycle": 25,
 
   "regionData": [
-    {
-      "region": "EMEA",
-      "cases": 48,
-      "investment": 4800000
-    },
-    {
-      "region": "AMERICAS",
-      "cases": 42,
-      "investment": 4100000
-    },
-    {
-      "region": "ASIA",
-      "cases": 34,
-      "investment": 3500000
-    }
+    { "region": "EMEA", "cases": 48, "investment": 4800000 },
+    { "region": "AMERICAS", "cases": 42, "investment": 4100000 },
+    { "region": "ASIA", "cases": 34, "investment": 3500000 }
+  ],
+
+  "programMix": [
+    { "name": "Global ECIF", "cases": 38 },
+    { "name": "Local Strategic", "cases": 51 },
+    { "name": "Local Discretionary", "cases": 27 },
+    { "name": "Other Programs", "cases": 8 }
   ]
 }
