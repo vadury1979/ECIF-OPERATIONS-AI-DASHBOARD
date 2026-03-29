@@ -1,0 +1,17 @@
+{
+  "totalCases": 124,
+  "activeCases": 98,
+  "completedCases": 21,
+  "cancelledCases": 5,
+  "investment": 12400000,
+  "ioPercent": 87,
+  "poPercent": 71,
+  "invoicePercent": 58,
+  "invoiceApprovedPercent": 82,
+  "e2eCycle": 25,
+  "regionData": [
+    {"region":"EMEA","cases":48,"investment":4800000},
+    {"region":"AMERICAS","cases":42,"investment":4100000},
+    {"region":"ASIA","cases":34,"investment":3500000}
+  ]
+}
